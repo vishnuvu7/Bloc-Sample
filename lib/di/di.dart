@@ -1,4 +1,4 @@
-import 'package:bloc_sample/features/anime/bloc/anime_cubit.dart';
+import 'package:bloc_sample/features/anime/cubit/anime_cubit.dart';
 import 'package:bloc_sample/features/anime/repo/anime_repo.dart';
 import 'package:bloc_sample/service/api_client.dart';
 import 'package:bloc_sample/service/api_provider.dart';

@@ -1,5 +1,5 @@
 import 'package:bloc_sample/di/di.dart';
-import 'package:bloc_sample/features/anime/bloc/anime_cubit.dart';
+import 'package:bloc_sample/features/anime/cubit/anime_cubit.dart';
 import 'package:bloc_sample/features/anime/model/resposne/anime_response.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
