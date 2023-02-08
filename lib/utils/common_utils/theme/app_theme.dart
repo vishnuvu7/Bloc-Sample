@@ -7,8 +7,8 @@ class AppColors {
   static Color primary1 = const Color(0xFF38B983);
   static Color primary2 = const Color(0xFF38B983);
   static Color primary3 = const Color(0xFF38B983);
-  static Color primary4 = const Color(0xFF38B983);
-  static Color primary5 = const Color(0xFF38B983);
+  static Color black = const Color(0xFF000000);
+  static Color grey = const Color(0xFF484444);
   //TODO:Add more colors here
 
   //Generate Material color
@@ -35,6 +35,12 @@ class AppColors {
       900: shadeColor(color, 0.4),
     });
   }
+}
+class AppStyle{
+  static const String fontName = 'NotoSans';
+  ThemeData lightTheme = ThemeData(
+
+  );
 }
 
 /// Hex Color-code to Color [FFFFFF >>> Color(0xFFFFFFFF)]

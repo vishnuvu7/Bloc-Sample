@@ -1,16 +1,7 @@
-import 'package:bloc_sample/service/api_provider.dart';
+import 'package:bloc_sample/features/add_anime/model/add_anime_model.dart';
 
-class AddAnimeRepo{
-  late ApiHelper _apiHelper;
+abstract class AddAnimeRepo {
+  void addAnime(String name, String character);
 
-  AddAnimeRepo(ApiHelper apiHelper){
-    _apiHelper = apiHelper;
-  }
-
-  addAnime(String name, String character)async{
-
-    // List<AddAnimeModel> animeList =
-
-  }
-
+  void removeAnime(AddAnimeModel anime);
 }

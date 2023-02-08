@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:bloc_sample/data/model/enums/base_url_config.dart';
 import 'package:bloc_sample/service/api_endpoints.dart';
 import 'package:bloc_sample/data/model/enums/http_types.dart';
 import 'package:bloc_sample/service/api_client.dart';
@@ -18,6 +19,7 @@ class ApiHelper {
       {required String service,
       required HttpRequestType requestType,
       required bool authRequired,
+      CustomBaseUrls? url,
       Map<String, dynamic>? params,
       Map<String, dynamic>? data}) async {
     Options options = Options(contentType: Headers.jsonContentType, method: requestType.stringValue);
@@ -28,6 +30,9 @@ class ApiHelper {
       final token = await box.get(HiveManager.accessToken);
       dio.options.headers["Authorization"] = "Bearer $token";
       //dio.options.headers["Authorization"] = "JWT " + token;
+    }
+    if(url != null){
+      dio.options.baseUrl = url.url;
     }
     try {
       final response = await dio.request(service, options: options, queryParameters: params, data: data);

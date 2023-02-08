@@ -1,5 +1,6 @@
 import 'package:bloc_sample/features/add_anime/view/add_anime_view.dart';
 import 'package:bloc_sample/features/anime/view/anime_view.dart';
+import 'package:bloc_sample/features/auth/view/login_view.dart';
 import 'package:go_router/go_router.dart';
 
 
@@ -12,7 +13,12 @@ import 'package:go_router/go_router.dart';
 final router = GoRouter(
   routes: [
     GoRoute(
-        path: '/', // root of the route
+        path: '/',
+        builder: (context, state) => const LoginPage(),
+        name: 'login'
+    ),
+    GoRoute(
+        path: '/animeList', // root of the route
         builder: (context, state) => const AnimeScreen(),
         name: 'animePage'
     ),
@@ -21,5 +27,6 @@ final router = GoRouter(
         builder: (context, state) => const AddAnimeScreen(),
         name: 'addAnime'
     ),
+
   ],
 );

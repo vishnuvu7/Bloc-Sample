@@ -16,7 +16,7 @@ class AnimeScreen extends StatelessWidget {
       create: (context) => locate<AnimeCubit>(),
       child: Builder(
         builder: (context) {
-          final AnimeCubit bloc = BlocProvider.of<AnimeCubit>(context);
+          final AnimeCubit bloc = context.read<AnimeCubit>();
           return Scaffold(
               appBar: AppBar(
                 title: const Text(
@@ -64,7 +64,6 @@ class AnimeScreen extends StatelessWidget {
                     case APIStateFailure:
                       final errorMessage = (state as APIStateFailure).message;
                       return  Center(child: Text(errorMessage));
-
                     default:
                       return const Center(child: Text("Error"));
                   }
