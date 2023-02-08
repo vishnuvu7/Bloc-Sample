@@ -1,7 +1,7 @@
-import 'package:bloc_sample/data/endpoint/api_endpoints.dart';
+import 'package:bloc_sample/service/api_endpoints.dart';
 import 'package:flutter/foundation.dart';
-import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_pretty_dio_logger/flutter_pretty_dio_logger.dart';
 
 
 class ApiClient {
@@ -26,7 +26,10 @@ class ApiClient {
         requestBody: true,
         requestHeader: true,
         error: true,
-        request: true,
+        canShowLog: true,
+        convertFormData: false,
+        showProcessingTime: true,
+        showCUrl: false,
         responseBody: true,
         responseHeader: true
       ));

@@ -1,3 +1,4 @@
+import 'package:bloc_sample/features/add_anime/view/add_anime_view.dart';
 import 'package:bloc_sample/features/anime/view/anime_view.dart';
 import 'package:go_router/go_router.dart';
 
@@ -15,6 +16,10 @@ final router = GoRouter(
         builder: (context, state) => const AnimeScreen(),
         name: 'animePage'
     ),
-
+    GoRoute(
+        path: '/addAnime',
+        builder: (context, state) => const AddAnimeScreen(),
+        name: 'addAnime'
+    ),
   ],
 );

@@ -4,6 +4,11 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static Color primary = const Color(0xFF38B983);
+  static Color primary1 = const Color(0xFF38B983);
+  static Color primary2 = const Color(0xFF38B983);
+  static Color primary3 = const Color(0xFF38B983);
+  static Color primary4 = const Color(0xFF38B983);
+  static Color primary5 = const Color(0xFF38B983);
   //TODO:Add more colors here
 
   //Generate Material color
@@ -32,8 +37,7 @@ class AppColors {
   }
 }
 
-/// Hex Color-code to Color
-/// FFFFFF >>> Color(0xFFFFFFFF)
+/// Hex Color-code to Color [FFFFFF >>> Color(0xFFFFFFFF)]
 extension HexColor on Color {
   /// String is in the format "aabbcc" or "ffaabbcc" with an optional leading "#".
   static Color fromHex(String hexString) {
