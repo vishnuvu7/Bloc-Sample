@@ -9,13 +9,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:go_router/go_router.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final usernameCtrl = TextEditingController(text: 'admin');
+  final passwordCtrl = TextEditingController(text: 'password123');
+  @override
   Widget build(BuildContext context) {
-    final usernameCtrl = TextEditingController(text: 'admin');
-    final passwordCtrl = TextEditingController(text: 'password123');
     return Scaffold(
         appBar: AppBar(
           title: const Text(
@@ -96,7 +101,7 @@ class LoginPage extends StatelessWidget {
                                 AuthRequest request = AuthRequest(username: usernameCtrl.text, password: passwordCtrl.text);
                                 loginBloc.login(request);
                               }else{
-                                print("please enter username & password");
+                                EasyLoading.showInfo("Please enter username and password");
                               }
                             },
                             child: const Text("Login"));
