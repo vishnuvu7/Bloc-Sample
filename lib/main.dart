@@ -5,6 +5,7 @@ import 'package:bloc_sample/utils/common_utils/theme/change_theme_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 Future<void> main() async {
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
             return MaterialApp.router(
               title: 'Sample Bloc Project',
               theme: state,
+              builder: EasyLoading.init(),
               //TODO:here add more routes
               routerConfig: router,
             );

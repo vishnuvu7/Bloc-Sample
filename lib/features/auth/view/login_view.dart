@@ -6,6 +6,7 @@ import 'package:bloc_sample/service/api_state.dart';
 import 'package:bloc_sample/utils/common_utils/theme/change_theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:go_router/go_router.dart';
 
 class LoginPage extends StatelessWidget {
@@ -70,15 +71,19 @@ class LoginPage extends StatelessWidget {
                     listener: (context, state) {
                       switch(state.runtimeType){
                         case APILoading:
+                          EasyLoading.show();
                           break;
                         case APILoaded<AuthResponse>:
+                          EasyLoading.dismiss();
                           final response = (state as APILoaded<AuthResponse>).data;
-                          print( "${response.token} ${response.reason}");
+                          ///Check Condition [response] is valid or not and navigate to home page
                           context.goNamed('animePage');
                           break;
                         case APIStateFailure:
+                          EasyLoading.dismiss();
                           break;
                         default:
+                          EasyLoading.dismiss();
                           break;
                       }
                     },
@@ -90,8 +95,9 @@ class LoginPage extends StatelessWidget {
                               if(usernameCtrl.text.isNotEmpty && passwordCtrl.text.isNotEmpty){
                                 AuthRequest request = AuthRequest(username: usernameCtrl.text, password: passwordCtrl.text);
                                 loginBloc.login(request);
+                              }else{
+                                print("please enter username & password");
                               }
-                              print("please enter username & password");
                             },
                             child: const Text("Login"));
                       }
