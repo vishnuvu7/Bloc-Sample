@@ -4,6 +4,7 @@ import 'package:bloc_sample/features/auth/model/request/auth_request.dart';
 import 'package:bloc_sample/features/auth/model/response/auth_response.dart';
 import 'package:bloc_sample/service/api_state.dart';
 import 'package:bloc_sample/utils/common_utils/theme/change_theme_cubit.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -21,6 +22,7 @@ class _LoginPageState extends State<LoginPage> {
   final passwordCtrl = TextEditingController(text: 'password123');
   @override
   Widget build(BuildContext context) {
+    context.setLocale(const Locale('en', 'US'));
     return Scaffold(
         appBar: AppBar(
           title: const Text(
@@ -72,6 +74,7 @@ class _LoginPageState extends State<LoginPage> {
                     .width * .3,
                 child: BlocProvider<LoginCubit>(
                   create: (context) => locate<LoginCubit>(),
+                  //Add Listener for button clicks and or any other interactions
                   child: BlocListener<LoginCubit, APIState>(
                     listener: (context, state) {
                       switch(state.runtimeType){

@@ -8,14 +8,14 @@ class ApiClient {
   Dio getDioClient() {
     late String baseUrl;
     if (kDebugMode) {
-      baseUrl = ApiEndPoints.baseURL;
+      baseUrl = CustomBaseUrls.animeUrl.url;
     } else {
-      baseUrl = ApiEndPoints.baseURL;
+      baseUrl = CustomBaseUrls.animeUrl.url;
     }
     var options = BaseOptions(
       baseUrl: baseUrl,
-      connectTimeout: 20000,
-      receiveTimeout: 20000,
+      connectTimeout: const Duration(seconds: 20),
+      receiveTimeout: const Duration(seconds: 20),
     );
 
     final dio = Dio(options);

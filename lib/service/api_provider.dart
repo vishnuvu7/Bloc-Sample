@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:bloc_sample/data/model/enums/base_url_config.dart';
 import 'package:bloc_sample/service/api_endpoints.dart';
 import 'package:bloc_sample/data/model/enums/http_types.dart';
 import 'package:bloc_sample/service/api_client.dart';

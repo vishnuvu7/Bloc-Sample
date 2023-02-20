@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:bloc_sample/data/model/enums/base_url_config.dart';
 import 'package:bloc_sample/data/model/enums/http_types.dart';
 import 'package:bloc_sample/features/auth/model/request/auth_request.dart';
 import 'package:bloc_sample/features/auth/model/response/auth_response.dart';
