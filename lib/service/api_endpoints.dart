@@ -3,7 +3,6 @@ enum CustomBaseUrls {
   animeUrl("https://animechan.vercel.app/");
 
   const CustomBaseUrls(this.url);
-
   final String url;
 }
 

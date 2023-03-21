@@ -1,12 +1,13 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:bloc_sample/service/api_endpoints.dart';
 import 'package:bloc_sample/data/model/enums/http_types.dart';
 import 'package:bloc_sample/service/api_client.dart';
-import 'package:bloc_sample/storage/hive_manager.dart';
+import 'package:bloc_sample/service/api_endpoints.dart';
 import 'package:bloc_sample/service/network_exception.dart';
+import 'package:bloc_sample/storage/hive_manager.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class ApiHelper {
@@ -30,6 +31,26 @@ class ApiHelper {
       dio.options.headers["Authorization"] = "Bearer $token";
       //dio.options.headers["Authorization"] = "JWT " + token;
     }
+
+    dio.interceptors.add(InterceptorsWrapper(onRequest: (RequestOptions reqOptions, RequestInterceptorHandler handler) async {
+      if (authRequired) {
+        String token = box.get(HiveManager.accessToken) ?? '';
+        dio.options.headers["Authorization"] = "Bearer $token";
+      }
+      return handler.next(reqOptions);
+    }, onError: (DioError error, ErrorInterceptorHandler handler) async {
+      if (error.response == null) {
+        return;
+      }
+      if (error.response!.statusCode == 401) {
+        var res = await refreshToken();
+        if (res) {
+          var response = await callApi(
+              service: service, requestType: requestType, authRequired: authRequired, data: data, params: params, url: url);
+          return handler.resolve(response);
+        }
+      }
+    }));
     if(url != null){
       dio.options.baseUrl = url.url;
     }
@@ -68,5 +89,21 @@ class ApiHelper {
       "file": await MultipartFile.fromFile(file.path, filename: fileName),
     });
     return await dio.post(ApiEndPoints.fileURL, data: formData);
+  }
+
+  Future<bool> refreshToken() async {
+    try {
+      final dio = apiClient.getDioClient();
+      //TODO: Implement refresh Token API
+      if (kDebugMode) {
+        print("::Refresh Token Called");
+      }
+      return true;
+    } on DioError catch (ex) {
+      if (kDebugMode) {
+        print(ex);
+      }
+      return false;
+    }
   }
 }

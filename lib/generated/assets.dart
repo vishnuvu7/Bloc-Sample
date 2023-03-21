@@ -5,6 +5,7 @@ class Assets {
   static const String commonUtilsDateUtils = 'lib/utils/common_utils/date_utils.dart';
   static const String commonUtilsTranslate = 'lib/utils/common_utils/translate.dart';
   static const String commonWidgetsCustomTextfield = 'lib/utils/common_widgets/custom_textfield.dart';
+  static const String commonWidgetsSetstateReplacement = 'lib/utils/common_widgets/setstate_replacement.dart';
   static const String constantsAppConstants = 'lib/constants/app_constants.dart';
   static const String cubitAddAnimeCubit = 'lib/features/add_anime/cubit/add_anime_cubit.dart';
   static const String cubitAnimeCubit = 'lib/features/anime/cubit/anime_cubit.dart';
@@ -15,9 +16,11 @@ class Assets {
   static const String diDi = 'lib/di/di.dart';
   static const String enumsHttpTypes = 'lib/data/model/enums/http_types.dart';
   static const String generatedAssets = 'lib/generated/assets.dart';
+  static const String libLocalizationArOM = 'lib/localization/ar-OM.json';
+  static const String libLocalizationEnUS = 'lib/localization/en-US.json';
   static const String libMain = 'lib/main.dart';
-  static const String localizationArOM = 'lib/localization/ar-OM.json';
-  static const String localizationEnUS = 'lib/localization/en-US.json';
+  static const String localizationArOM = 'assets/localization/ar-OM.json';
+  static const String localizationEnUS = 'assets/localization/en-US.json';
   static const String mapperDbMapper = 'lib/data/model/mapper/db_mapper.dart';
   static const String modelAddAnimeModel = 'lib/features/add_anime/model/add_anime_model.dart';
   static const String repoAddAnimeRepo = 'lib/features/add_anime/repo/add_anime_repo.dart';

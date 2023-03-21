@@ -84,6 +84,7 @@ class _LoginPageState extends State<LoginPage> {
                         case APILoaded<AuthResponse>:
                           EasyLoading.dismiss();
                           final response = (state as APILoaded<AuthResponse>).data;
+
                           ///Check Condition [response] is valid or not and navigate to home page
                           context.goNamed('animePage');
                           break;
