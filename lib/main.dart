@@ -20,9 +20,8 @@ Future<void> main() async {
       //Localization usage document :https://pub.dev/packages/easy_localization#usage
       EasyLocalization(
           supportedLocales: const [Locale('en', 'US'), Locale('ar', 'OM')],
-          path: 'lib/localization/',
+          path: 'assets/translations',
           fallbackLocale: const Locale('en', 'US'),
-          saveLocale: false,
           useFallbackTranslations: true,
           child: const MyApp()));
 }
@@ -43,10 +42,11 @@ class MyApp extends StatelessWidget {
         child: BlocBuilder<AppThemeCubit, ThemeData>(
           builder: (context, state) {
             return MaterialApp.router(
+              localizationsDelegates: context.localizationDelegates,
+              supportedLocales: context.supportedLocales,
               title: 'Sample Bloc Project',
               theme: state,
-              locale:context.locale ,
-              supportedLocales: context.supportedLocales,
+              locale: context.locale,
               builder: EasyLoading.init(),
               //TODO:here add more routes
               routerConfig: router,

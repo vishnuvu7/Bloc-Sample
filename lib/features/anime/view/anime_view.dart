@@ -3,6 +3,7 @@ import 'package:bloc_sample/features/anime/cubit/anime_cubit.dart';
 import 'package:bloc_sample/features/anime/model/response/anime_response.dart';
 import 'package:bloc_sample/service/api_state.dart';
 import 'package:bloc_sample/utils/common_utils/theme/change_theme_cubit.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -19,8 +20,8 @@ class AnimeScreen extends StatelessWidget {
         return Scaffold(
             appBar: AppBar(
               title: const Text(
-                "Bloc Sample",
-              ),
+                "app_Header",
+              ).tr(),
               actions: [
                 IconButton(
                     onPressed: () {
